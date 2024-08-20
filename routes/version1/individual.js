@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const individualController = require("../../controllers/version1/individual");
+const { bearerToken } = require("../../authentication/auth");
+
+router.use(bearerToken);
 
 router.post("/", individualController.create);
 router.get("/", individualController.getAllIndividuals);
