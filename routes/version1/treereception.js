@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const treeReceptionController = require("../../controllers/version1/treereception");
+const { bearerToken } = require("../../authentication/auth");
+
+router.use(bearerToken);
 
 router.post("/", treeReceptionController.create);
 router.get("/", treeReceptionController.getAllTreeReceptions);

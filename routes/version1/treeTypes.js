@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const treeTypeController = require("../../controllers/version1/treeTypes");
+const { bearerToken } = require("../../authentication/auth");
+
+router.use(bearerToken);
 
 // Define routes for TreeType
 router.post("/", treeTypeController.create);

@@ -7,8 +7,8 @@ module.exports = {
     const defaultPageSize = process.env.DEFAULT_PAGESIZE;
     const pagination = new Pagination({});
 
-    pagination.page = parseInt(req.query.page) || defaultPage;
-    pagination.pageSize = parseInt(req.query.pageSize) || defaultPageSize;
+    pagination.page = parseInt(req.query.page) || parseInt(defaultPage);
+    pagination.pageSize = parseInt(req.query.pageSize) || parseInt(defaultPageSize);
     pagination.rows = totalItems;
     pagination.pages = Math.ceil(totalItems / pagination.pageSize);
     const skip = (pagination.page - 1) * pagination.pageSize;
